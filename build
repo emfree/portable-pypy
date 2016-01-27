@@ -2,7 +2,7 @@
 
 set -e
 
-REVISION=$1
+URL=$1
 
 if [[ $ABI == 32 ]]; then
     PYPY_PATH=/opt/pypy-i686/bin
@@ -22,7 +22,7 @@ env
 
 rm -rf pypy
 mkdir -p pypy
-wget https://bitbucket.org/pypy/pypy/get/${REVISION:=default}.tar.bz2 -O - | tar -C pypy --strip-components=1 -xj
+wget $URL -O - | tar -C pypy --strip-components=1 -xj
 
 cd pypy
 patch -p0 < ../platform_linux.patch

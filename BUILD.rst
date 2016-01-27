@@ -39,12 +39,12 @@ OpenSSL, libffi etc.
     docker run --rm `ABI=64 ./runopt.sh` pypy ./build_deps
 
 
-Now we are ready to translate PyPy, the last parameter is the branch name or commit
-hash in the PyPy Bitbucket repository. Let's build PyPy 2.6:
+Now we are ready to translate PyPy. Let's build PyPy 2.6:
 
 .. code:: bash
 
-    docker run --rm `ABI=64 ./runopt.sh` pypy ./build release-2.6.0
+    export VERSION=release-2.6.0
+    docker run --rm `ABI=64 ./runopt.sh` pypy ./build https://bitbucket.org/pypy/pypy/get/$VERSION.tar.bz2
 
 
 This will take some time, around 90 minutes on modern hardware with enough RAM.
